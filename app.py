@@ -57,14 +57,11 @@ if selected =='Detection':
       img=Image.open(imgg).convert("L")
       img = img.resize((36,36))
       img = np.asarray(img)
-      img = img.reshape((1,36,36,1))
+      img = img.reshape((36,36,1))
       img = img / 255.0
       model = tf.keras.models.load_model("pneumonia.h5")
       pred = np.argmax(model.predict(img)[0])
-      if pred == 0:
-        return "Normal"
-      elif pred == 1:
-        return "penumonia"
+      return pred
     
     try:
         imageLocation = st.empty()
@@ -81,10 +78,12 @@ if selected =='Detection':
 
             result1= pneumoniapredictPage(picture)
             with result1_msg.container():
-                if result1 == "Normal" : 
+                if result1 == 0 : 
                     st.success("Your Lungs are Healthy")
-                elif result1 == "penumonia":
+                elif result1 == 1:
                     st.error("There is Pneumonia, You Should Go to The Doctor")
+                else:
+                  st.markdown("<h3 style='text-align: center; color: white;'>Try Another Pictuer !</h3>", unsafe_allow_html=True)
         
         if imgg is not None:
             #show to ui
@@ -94,10 +93,12 @@ if selected =='Detection':
             # for prediction
             result2= pneumoniapredictPage(imgg)
             with result2_msg.container():
-                if result2 == "Normal" : 
+                if result2 == 0 : 
                     st.success("Your Lungs are Healthy")
-                elif result2 == "penumonia":
+                elif result2 == 1:
                     st.error("There is Pneumonia, You Should Go to The Doctor")
+                else:
+                  st.markdown("<h3 style='text-align: center; color: white;'>Try Another Pictuer !</h3>", unsafe_allow_html=True)
     except:
         st.markdown("<h3 style='text-align: center; color: white;'>Try Another Pictuer !</h3>", unsafe_allow_html=True)
 
