@@ -43,8 +43,8 @@ selected_styl="""<style>
   transform: translate(-50%, -50%);
 }
 
-button:hover,
-button:active {
+.container-xxl d-flex flex-column flex-shrink-0 p-3:hover,
+.container-xxl d-flex flex-column flex-shrink-0 p-3:active {
   background-color: initial;
   background-position: 0 0;
   color: #FF4742;
