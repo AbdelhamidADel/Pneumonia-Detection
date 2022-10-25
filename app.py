@@ -49,7 +49,6 @@ if selected =='Detection':
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     st.markdown(img_style, unsafe_allow_html=True) 
     st.markdown("<h1 style='text-align: center; color: white;'>Pneumonia Detection </h1>", unsafe_allow_html=True)
-    result1_msg = st.empty()
     result2_msg = st.empty()
     st.markdown("-------------------------------------------------------------------------------")
 
@@ -69,22 +68,7 @@ if selected =='Detection':
         imgg = st.file_uploader(label="Choose a picture : ", type=['jpeg', 'jpg', 'png'], key="xray")
 
         st.markdown("<h3 style='text-align: center; color: white;'>  </h3>", unsafe_allow_html=True)
-
-        picture = st.camera_input("Take a picture : ")
-        if picture is not None:
-            showed_img=Image.open(picture)
-            showed_img= showed_img.resize((256, 256))
-            imageLocation.image(showed_img)
-
-            result1= pneumoniapredictPage(picture)
-            with result1_msg.container():
-                if result1 == 0 : 
-                    st.success("Your Lungs are Healthy")
-                elif result1 == 1:
-                    st.error("There is Pneumonia, You Should Go to The Doctor")
-                else:
-                  st.markdown("<h3 style='text-align: center; color: white;'>Try Another Pictuer !</h3>", unsafe_allow_html=True)
-        
+      
         if imgg is not None:
             #show to ui
             showed_img=Image.open(imgg)
