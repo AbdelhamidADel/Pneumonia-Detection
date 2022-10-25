@@ -5,6 +5,6 @@
 
 - With the emerging computing power, the development of an automatic pneumonia detection and disease treatment system is now possible, especially if the patient is in a remote area and medical services are limited.
 
-# illustration of a neural network and how it works :
+## illustration of a neural network and how it works :
 
 ![cnn brief](https://user-images.githubusercontent.com/104658866/197760731-de68284e-6ddb-442e-ab2d-1b133aca5cdd.png)
