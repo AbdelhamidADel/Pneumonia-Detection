@@ -12,7 +12,7 @@ selected = option_menu(None, ['Detection', 'About'],
     menu_icon="cast", default_index=0, orientation="horizontal")
 
 selected_styl="""<style>
-    .container-xxl d-flex flex-column flex-shrink-0 p-3 {
+    ul{
   background: #FF4742;
   border: 1px solid #FF4742;
   border-radius: 6px;
@@ -43,14 +43,14 @@ selected_styl="""<style>
   transform: translate(-50%, -50%);
 }
 
-.container-xxl d-flex flex-column flex-shrink-0 p-3:hover,
-.container-xxl d-flex flex-column flex-shrink-0 p-3:active {
+ul:hover,
+ul:active {
   background-color: initial;
   background-position: 0 0;
   color: #FF4742;
 }
 
-.container-xxl d-flex flex-column flex-shrink-0 p-3:active {
+ul:active {
   opacity: .5;
 }
 
