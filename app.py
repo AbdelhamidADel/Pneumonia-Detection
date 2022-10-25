@@ -57,7 +57,7 @@ if selected =='Detection':
       img=Image.open(imgg).convert("L")
       img = img.resize((36,36))
       img = np.asarray(img)
-      img = img.reshape((36,36,1))
+      img = img.reshape((1,36,36))
       img = img / 255.0
       model = tf.keras.models.load_model("pneumonia.h5")
       pred = np.argmax(model.predict(img)[0])
