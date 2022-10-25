@@ -54,7 +54,7 @@ if selected =='Detection':
     st.markdown("-------------------------------------------------------------------------------")
 
     def pneumoniapredictPage(imgg):
-      img=Image.open(imgg)
+      img=Image.open(imgg).convert("L")
       img = img.resize((36,36))
       img = np.asarray(img)
       img = img.reshape((1,36,36,1))
